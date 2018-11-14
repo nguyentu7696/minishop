@@ -1,0 +1,333 @@
+@charset "UTF-8";
+
+html.body {
+	width: 100%;
+	height: 100%;
+	font-family: Roboto, Arial;
+	font-size: 14px;
+}
+
+img{
+	width: 100%;
+}
+
+ul{
+	list-style-type: none;
+}
+
+#body-login {
+	background-color: #00909C;
+}
+
+/* start page dangnhap*/
+#body-flex-login {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+#container-login {
+	display: flex;
+	width: 820px;
+	height: 610px;
+	background-color: white;
+}
+
+#container-login-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 384px;
+	height: 610px;
+	background-image: url("../image/backgrouddangnhap.png");
+	padding: 0 16px;
+}
+
+#header-left {
+	text-align: center;
+	color: white;
+}
+
+.header-login {
+	margin-top: 32px;
+}
+
+#text-logo {
+	font-size: 48px;
+}
+
+#hint-text-logo {
+	font-size: 12px;
+	opacity: 0.7;
+}
+
+#header-bottom-left {
+	margin-bottom: 64px;
+}
+
+#header-bottom-left span {
+	color: white;
+	margin-left: 8px;
+}
+
+#container-login-rigth {
+	display: flex;
+	flex: 1;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 0 24px;
+	justify-content: space-between;
+}
+
+#header-top-right {
+	font-size: 20px;
+	color: #B7B7B7;
+}
+
+.active {
+	color: #DA7C79;
+}
+
+#container-social-login {
+	align-self: flex-end;
+	padding-bottom: 16px;
+}
+
+#container-center-login-right input[type=text] {
+	margin-top: 8px;
+	font-size: 14px; 
+}
+
+#container-center-login-right input[type=password] {
+	margin-top: 8px;
+}
+
+#container-center-login-right input[type=submit] {
+	margin-top: 24px;
+	color: white;
+	font-size: 14px;
+}
+
+.meterial-textinput {
+	height: 38px;
+	border: 0;
+	background-color: #D8D8D8;
+	width: 100%;
+}
+
+.meterial-primary-button {
+	height: 38px;
+	border: 0;
+	background-color: #00909C;
+	width: 100%;
+	box-shadow: 0px 2px 4px 0px #000;
+}
+
+.input-icon-email {
+	background: url("../image/icon_email.png") no-repeat scroll 8px 8px;
+	padding-left: 42px;
+	height: 38px;
+	border: 0;
+	background-color: #D8D8D8;
+	width: 100%;
+}
+
+.input-icon-password {
+	background: url("../image/icon_lock.png") no-repeat scroll 5px 5px;
+	padding-left: 42px;
+	height: 38px;
+	border: 0;
+	background-color: #D8D8D8;
+	width: 100%;
+}
+.container-signup-form{
+	display: none;
+}
+
+/* end page dangnhap*/
+
+/* css trang chu */
+#header {
+	height: 662px;
+	background: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+		url("../image/background_trangchu.png") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.none-nav {
+	background: none !important;
+	border: none !important;
+}
+
+.navbar-center {
+	margin-left: 25% !important;
+}
+
+.navbar-nav a {
+	color: white !important;
+}
+
+.active>a {
+	color: blue !important;
+	background: none !important;
+	font-weight: bold;
+}
+
+.open>a {
+	color: blue !important;
+	background: none !important;
+	font-weight: bold;
+}
+
+.dropdown-menu {
+	background-color: blue !important;
+}
+
+.event-header {
+	text-align: center;
+	margin-top: 216px;
+}
+
+.event-header>span {
+	color: white;
+}
+
+.event-header>button {
+	color: white;
+	background-color: #39FFE1;
+	border: #39FFE1;
+}
+
+.icon {
+	width: 48px;
+	height: 48px
+}
+
+#info {
+	text-align: center;
+	margin-top: 48px;
+}
+
+#info>span {
+	margin-top: 16px;
+}
+
+#title-sanpham {
+	margin-top: 100px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.sanpham {
+	padding-bottom: 16px;
+	margin-top: 30px;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 2);
+}
+
+.sanpham img {
+	height: 256px;
+}
+
+.gia {
+	font-size: 14px;
+	color: red;
+	margin-bottom: 16px;
+	padding-bottom: 16px;
+}
+
+.circle-avatar{
+	width: 32px;
+	height: 32px;
+	border-radius: 50%; /*16px*/
+	background-color: chocolate;
+	text-align: center;
+	padding: 15px !important;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+a.circle-avatar:hover{
+	width: 32px !important;
+	height: 32px !important;
+	border-radius: 16px !important;
+	background-color: chocolate !important;
+	text-align: center !important;
+	padding: 15px !important !important;
+	margin-top: 10px !important;
+	margin-bottom: 15px !important;
+}
+
+#footer {
+	margin-top: 42px;
+	color: white;
+	padding: 32px;
+	background: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+		url("../image/backgroud_footer.png") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#footer p{
+	text-align: center;
+}
+
+.title-footer {
+	font-size: 32px;
+}
+
+#footer textarea {
+	border: 0;
+	background-color: #D8D8D8;
+	width: 100%;
+}
+
+/* menu */
+/* .mymenu li > ul{
+	display: none;
+}
+
+.mymenu li:hover > ul{
+	display: block;
+} */
+
+
+
+/* end menu */
+
+/*  chi tiet */
+#header-chitiet{
+	background-color: black;	
+}
+
+/* end chi tiet */
+
+@media ( max-width : 575px) {
+	.navbar-center {
+		margin-left: 0% !important;
+	}
+}
+
+@media ( min-width : 576px) and (max-width: 767px) {
+	.navbar-center {
+		margin-left: 0% !important;
+	}
+}
+
+@media ( min-width : 768px) and (max-width: 991px) {
+	.navbar-center {
+		margin-left: 8% !important;
+	}
+}
+
+@media ( max-width : 991px) {
+}
+/* end css trang chu */
