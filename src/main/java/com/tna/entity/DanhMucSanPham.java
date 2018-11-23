@@ -29,23 +29,7 @@ public class DanhMucSanPham implements Serializable{
 
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="danh_muc_id")
-	private Set<SanPham> danhSachSanPham; 
-	
-	public Set<SanPham> getDanhSachSanPham() {
-		return danhSachSanPham;
-	}
-
-	public void setDanhSachSanPham(Set<SanPham> danhSachSanPham) {
-		this.danhSachSanPham = danhSachSanPham;
-	}
-
-	public String getHinhDanhMuc() {
-		return hinhDanhMuc;
-	}
-
-	public void setHinhDanhMuc(String hinhDanhMuc) {
-		this.hinhDanhMuc = hinhDanhMuc;
-	}
+	private Set<SanPham> danhSachSanPham;
 
 	public int getId() {
 		return id;
@@ -62,6 +46,20 @@ public class DanhMucSanPham implements Serializable{
 	public void setTenDanhMuc(String tenDanhMuc) {
 		this.tenDanhMuc = tenDanhMuc;
 	}
-	
-	
+
+	public String getHinhDanhMuc() {
+		return hinhDanhMuc;
+	}
+
+	public void setHinhDanhMuc(String hinhDanhMuc) {
+		this.hinhDanhMuc = hinhDanhMuc;
+	}
+
+	public Set<SanPham> getDanhSachSanPham() {
+		return danhSachSanPham;
+	}
+
+	public void setDanhSachSanPham(Set<SanPham> danhSachSanPham) {
+		this.danhSachSanPham = danhSachSanPham;
+	} 	
 }

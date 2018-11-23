@@ -299,7 +299,16 @@ a.circle-avatar:hover{
 	display: block;
 } */
 
+.mymenu{
+	padding: 0;
+	margin: 0;
+}
 
+.mymenu > li {
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px 0px;
+}
 
 /* end menu */
 

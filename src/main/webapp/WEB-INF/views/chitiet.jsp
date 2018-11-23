@@ -68,11 +68,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2 col-sm-2">
-				<h3>Danh mục sản phẩm</h3>
+				<h3>Danh mục</h3>
 				<ul class="mymenu">
-					<li>áo sơ mi</li>
-					<li>áo khoác</li>
-					<li>Quần dài</li>
+					<c:forEach var="danhmuc" 
+						items=" ${ danhMucs }">
+						<li><a href="#"> ${danhmuc}  </a></li>
+					</c:forEach>
 				</ul>
 			</div>
 
@@ -84,13 +85,13 @@
 					</div>
 					<div class="col-md-8 col-sm-8">
 						<h3>${ sanPham.getTenSanPham()  }</h3>
-						<h4>${ sanPham.getGiaTien() }</h4>
+						<h4 style="color: red;">${ sanPham.getGiaTien() } VND</h4>
 						<table class="table">
 							<thead>
 								<tr>
-									<td>Màu sản phẩm</td>
-									<td>Size sản phẩm</td>
-									<td>Số lượng sản phẩm</td>
+									<td>Màu</td>
+									<td>Size</td>
+									<td>Số lượng</td>
 								</tr>
 							</thead>
 							<tbody>
@@ -107,7 +108,7 @@
 								<tr>
 									<td>dfa</td>
 									<td>fasd</td>
-									<td>da</td>
+									<td>1</td>
 									<td><button class="btn btn-success">Giỏ hàng</button></td>
 								</tr>
 							</tbody>
