@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 20, 2018 lúc 07:28 PM
+-- Thời gian đã tạo: Th12 06, 2018 lúc 01:15 PM
 -- Phiên bản máy phục vụ: 10.1.32-MariaDB
 -- Phiên bản PHP: 5.6.36
 
@@ -91,6 +91,21 @@ CREATE TABLE `danh_muc_san_pham` (
   `hinh_danh_muc` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `danh_muc_san_pham`
+--
+
+INSERT INTO `danh_muc_san_pham` (`id`, `ten_danh_muc`, `hinh_danh_muc`) VALUES
+(1, 'Áo sơ mi', ''),
+(2, 'Áo thun', ''),
+(3, 'Quần Sort', ''),
+(4, 'Đồ kiểu', ''),
+(5, 'Áo khoác', ''),
+(6, 'Áo đôi', ''),
+(7, 'Áo sơ mi adachi nữ', ''),
+(8, 'Quần tây', ''),
+(9, 'Quần Jean adachi nam', '');
+
 -- --------------------------------------------------------
 
 --
@@ -133,6 +148,19 @@ CREATE TABLE `mau_san_pham` (
   `ten_mau` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `mau_san_pham`
+--
+
+INSERT INTO `mau_san_pham` (`id`, `ten_mau`) VALUES
+(1, 'Xanh Dương'),
+(2, 'Xám'),
+(3, 'Trắng'),
+(4, 'Hồng'),
+(5, 'Xanh Dương'),
+(6, 'Xanh lá'),
+(7, 'Xanh Ngọc');
+
 -- --------------------------------------------------------
 
 --
@@ -171,8 +199,16 @@ CREATE TABLE `san_pham` (
   `ten_san_pham` varchar(100) DEFAULT NULL,
   `gia_tien` varchar(50) DEFAULT NULL,
   `mo_ta` text,
-  `hinh_san_pham` text
+  `hinh_san_pham` text,
+  `gianh_cho` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `san_pham`
+--
+
+INSERT INTO `san_pham` (`id`, `danh_muc_id`, `ten_san_pham`, `gia_tien`, `mo_ta`, `hinh_san_pham`, `gianh_cho`) VALUES
+(1, 1, 'Áo sơ mi nam no style TN001', '185,000', 'Thiết kế áo sơ mi dễ dàng basic, dễ dàng sử dụng', '33745328_645013329175800_5540765423978414080_n.jpg', 'nam');
 
 -- --------------------------------------------------------
 
@@ -184,6 +220,16 @@ CREATE TABLE `size_san_pham` (
   `id` int(11) NOT NULL,
   `size` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `size_san_pham`
+--
+
+INSERT INTO `size_san_pham` (`id`, `size`) VALUES
+(1, 'M'),
+(2, 'L'),
+(3, 'XL'),
+(4, 'XXL');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -282,7 +328,7 @@ ALTER TABLE `chuc_vu`
 -- AUTO_INCREMENT cho bảng `danh_muc_san_pham`
 --
 ALTER TABLE `danh_muc_san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `hoa_don`
@@ -300,7 +346,7 @@ ALTER TABLE `khuyen_mai`
 -- AUTO_INCREMENT cho bảng `mau_san_pham`
 --
 ALTER TABLE `mau_san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `nhan_vien`
@@ -312,13 +358,13 @@ ALTER TABLE `nhan_vien`
 -- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `size_san_pham`
 --
 ALTER TABLE `size_san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
