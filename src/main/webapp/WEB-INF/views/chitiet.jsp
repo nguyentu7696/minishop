@@ -30,7 +30,7 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-center">
-					<li class="active"><a href="#">TRANG CHỦ</a></li>
+					<li class="active"><a href="#">TRANG CHá»¦</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -43,8 +43,8 @@
 							<li role="separator" class="divider"></li>
 							<li><a href="#">One more separated link</a></li>
 						</ul></li>
-					<li><a href="#">DỊCH VỤ</a></li>
-					<li><a href="#">LIÊN HỆ</a></li>
+					<li><a href="#">Dá»ŠCH Vá»¤</a></li>
+					<li><a href="#">LIÃŠN Há»†</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -53,7 +53,7 @@
 							<li><a href="dangnhap/" class="circle-avatar"><span>${chucaidau}</span></a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="dangnhap/"><span>ĐĂNG NHẬP</span></a></li>
+							<li><a href="dangnhap/"><span>Ä�Ä‚NG NHáº¬P</span></a></li>
 						</c:otherwise>
 					</c:choose>
 					<li><a href="#"><img alt=""
@@ -68,7 +68,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2 col-sm-2">
-				<h3>Danh mục</h3>
+				<h3>Danh má»¥c</h3>
 				<ul class="mymenu">
 					<c:forEach var="danhmuc" 
 						items=" ${ danhMucs }">
@@ -84,8 +84,8 @@
 							src="<c:url value="/resources/image/sanpham/${ sanPham.getHinhSanPham() }" />">
 					</div>
 					<div class="col-md-8 col-sm-8">
-						<h3>${ sanPham.getTenSanPham()  }</h3>
-						<h4 style="color: red;">${ sanPham.getGiaTien() } VND</h4>
+						<h3 id="tensp" data-masp="${ sanPham.getId() }">${ sanPham.getTenSanPham()  }</h3>
+						<h4 id="giatien" data-value="${ sanPham.getGiaTien() }" style="color: red;">${ sanPham.getGiaTien() } VND</h4>
 						<table class="table">
 							<thead>
 								<tr>
@@ -98,19 +98,12 @@
 								<c:forEach var="chitietsanpham"
 									items="${ sanPham.getChiTietSanPhams() }">
 									<tr>
-										<td>${chitietsanpham.getMauSanPham().getTenMau() }</td>
-										<td>${chitietsanpham.getSizeSanPham().getSize() }</td>
-										<td>${chitietsanpham.getSoLuong() }</td>
-										<td><button class=" btn btn-success">Giỏ hàng</button></td>
+										<td class="mau" data-mamau="${chitietsanpham.getMauSanPham().getId() }">${chitietsanpham.getMauSanPham().getTenMau() }</td>
+										<td class="size" data-masize="${chitietsanpham.getSizeSanPham().getId() }"> ${chitietsanpham.getSizeSanPham().getSize() } </td>
+										<td class="soluong">${chitietsanpham.getSoLuong() }</td>
+										<td><button class=" btn btn-success btn-giohang">giỏ hàng</button></td>
 									</tr>
 								</c:forEach>
-
-								<tr>
-									<td>dfa</td>
-									<td>fasd</td>
-									<td>1</td>
-									<td><button class="btn btn-success">Giỏ hàng</button></td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -127,29 +120,29 @@
 		<div class="row">
 			<div class="col-sm-4 col-md-4 wow tada">
 				<p>
-					<span class="title-footer">THÔNG TIN SHOP</span>
+					<span class="title-footer">THÃ”NG TIN SHOP</span>
 				</p>
-				<span>Một thương hiệu thời trang đầy uy tín luôn đảm bảo chất
-					lượng sản phẩm tốt nhất cho khách hàng</span>
+				<span>Má»™t thÆ°Æ¡ng hiá»‡u thá»�i trang Ä‘áº§y uy tÃ­n luÃ´n Ä‘áº£m báº£o cháº¥t
+					lÆ°á»£ng sáº£n pháº©m tá»‘t nháº¥t cho khÃ¡ch hÃ ng</span>
 			</div>
 			<div class="col-sm-4 col-md-4 wow tada">
 				<p>
-					<span class="title-footer">LIÊN HỆ</span>
+					<span class="title-footer">LIÃŠN Há»†</span>
 				</p>
-				<span>Xuân La, Tây Hồ, Hà Nội</span><br /> <span>anhtu7696@gmail.com</span><br />
+				<span>XuÃ¢n La, TÃ¢y Há»“, HÃ  Ná»™i</span><br /> <span>anhtu7696@gmail.com</span><br />
 				<span>0974858669</span><br />
 			</div>
 			<div class="col-sm-4 col-md-4 wow tada">
 				<p>
-					<span class="title-footer">GÓP Ý</span>
+					<span class="title-footer">GÃ“P Ã�</span>
 				</p>
 				<form action="" method="post">
 					<input name="tenNhanVien" class="meterial-textinput"
 						style="margin-bottom: 8px" type="text" placeholder="Email">
 					<textarea name="tuoi" style="margin-bottom: 8px" rows="4" cols="50"
-						placeholder="Nội dung"></textarea>
-					<button class="meterial-primary-button" style="margin-bottom: 8px">ĐỒNG
-						Ý</button>
+						placeholder="Ná»™i dung"></textarea>
+					<button class="meterial-primary-button" style="margin-bottom: 8px">Ä�á»’NG
+						Ã�</button>
 				</form>
 
 			</div>

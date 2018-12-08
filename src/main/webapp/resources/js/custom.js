@@ -9,7 +9,7 @@ $(document).ready(function(){
 		var paasword = $("#matkhau").val();
 		
 		$.ajax({
-			url:"/minishop/api/kiemtradangnhap",
+			url:"/api/kiemtradangnhap",
 			type:"GET",
 			data:{
 				email:email,
@@ -40,6 +40,46 @@ $(document).ready(function(){
 		$("#dangnhap").removeClass("active");
 		$(".container-signup-form").show();
 		$(".container-login-form").hide();
+	});
+	
+	$(".btn-giohang").click(function(){
+		
+		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
+		var tenmau = $(this).closest("tr").find(".mau").text();
+		
+		var masize = $(this).closest("tr").find(".size").attr("data-masize");
+		var tensize = $(this).closest("tr").find(".size").text();
+		
+		var soluong = $(this).closest("tr").find(".soluong").text();
+
+		var tensp = $("#tensp").text();
+		var masp = $("#tensp").attr("data-masp");
+		var giatien = $("#giatien").attr("data-value");
+
+
+		$.ajax({
+			url:"/api/themgiohang",
+			type:"GET",
+			data:{
+				tensp: tensp,
+				maSp: masp,
+				maSize: masize,
+				maMau: mamau,
+				soLuong: soluong,
+				giaTien: giatien,
+				tenMau: tenmau,
+				tenSize: tensize
+			},
+			success: function(value){
+				if(value=="true"){
+					duongDanHienTai = window.location.href;
+					duongdan = duongDanHienTai.replace("dangnhap/","");
+					window.location = duongdan;
+				}else{
+					$("#ketqua").text("dang nhap that bai!");
+				}
+			}
+		});
 	});
 	
 });
