@@ -50,14 +50,31 @@
 				<ul class="nav navbar-nav navbar-right">
 					<c:choose>
 						<c:when test="${chucaidau != null}">
-							<li><a href="dangnhap/" class="circle-avatar"><span>${chucaidau}</span></a></li>
+							<li><a href="dangnhap/" class="circle-avatar">
+								<div></div>
+								<span>${chucaidau}</span>
+							</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="dangnhap/"><span>Ä�Ä‚NG NHáº¬P</span></a></li>
+							<li><a href="dangnhap/"><span>đăng nhập</span></a></li>
 						</c:otherwise>
 					</c:choose>
-					<li><a href="#"><img alt=""
-							src="<c:url value="/resources/image/icon_cart.png" />"> </a></li>
+					<li id="giohang"><a href="#"><img alt=""
+							src="<c:url value="/resources/image/icon_cart.png" />">
+
+							<c:if test = "${soluongsanphamgiohang > 0}">
+								<div class="circle-giohang">
+									<span>${ soluongsanphamgiohang }</span> 
+								</div>
+							</c:if>
+
+							<c:if test = "${soluongsanphamgiohang <= 0  || soluongsanphamgiohang == null }">
+								<div>
+									<span>${ soluongsanphamgiohang }</span> 
+								</div>
+							</c:if>
+							
+							</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

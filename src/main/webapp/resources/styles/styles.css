@@ -147,6 +147,20 @@ ul{
 
 /* end page dangnhap*/
 
+
+.circle-giohang{
+	text-align: center;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	font-size: 11px;
+	border-radius: 40px;
+	background: blue;
+	line-height: 22px;
+	margin-top: -30px;
+	margin-left: 10px;
+}
+
 /* css trang chu */
 #header {
 	height: 662px;

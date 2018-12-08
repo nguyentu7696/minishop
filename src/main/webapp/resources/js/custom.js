@@ -71,14 +71,18 @@ $(document).ready(function(){
 				tenSize: tensize
 			},
 			success: function(value){
-				if(value=="true"){
-					duongDanHienTai = window.location.href;
-					duongdan = duongDanHienTai.replace("dangnhap/","");
-					window.location = duongdan;
-				}else{
-					$("#ketqua").text("dang nhap that bai!");
-				}
+				//luoo luon thanh cong vi khong dong vao db
 			}
+		}).done(function(){
+			// done la khi ajax chay xong thi thuc hien cong viec j do
+			$.ajax({
+				url:"/api/laysoluonggiohang",
+				type:"GET",
+				success: function(value){
+					$("#giohang").find("div").addClass("circle-giohang");
+					$("#giohang").find("div").html("<span>" + value + "</span>");
+				}
+			});
 		});
 	});
 	
