@@ -105,7 +105,7 @@
                                 <td class="size" data-masize="${value.getMaSize() }"> ${value.getTenSize() } </td>
                                 <td class="soluong"><input min="1" type="number" class="soluong-giohang" value="${value.getSoLuong() }"/> </td>
                                 <td class="giatien"  data-value="${value.getGiaTien()}" >${value.getGiaTien()}</td>
-                                <td class="btn btn-danger">Xóa</td>
+                                <td class="xoa-giohang btn btn-danger">Xóa</td>
                             </tr>
                         </c:forEach>
                     </tbody>

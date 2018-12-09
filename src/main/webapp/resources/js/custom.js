@@ -110,6 +110,29 @@ $(document).ready(function(){
 		})
 	}
 
+
+	$(".xoa-giohang").click(function(){
+		var self = $(this);
+		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");		
+		var masize = $(this).closest("tr").find(".size").attr("data-masize");
+		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
+
+		$.ajax({
+			url:"/api/xoagiohang",
+			type:"GET",
+			data:{
+				masp: masp,
+				masize: masize,
+				mamau: mamau,
+			},
+			success: function(value){
+				self.closest("tr").remove();
+				ganTongTienGioHang(true);
+			}
+		})
+
+	})
+
 	$(".soluong-giohang").change(function(){
 		var soluong = $(this).val();
 		var giatien = $(this).closest("tr").find(".giatien").attr("data-value");

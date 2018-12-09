@@ -47,6 +47,17 @@ public class ApiController {
 		}
 	}
 	
+	@GetMapping("xoagiohang")
+	@ResponseBody
+	public void xoagiohang(HttpSession httpSession,
+			@RequestParam int masp, @RequestParam int mamau, @RequestParam int masize) {
+		if(null!=httpSession.getAttribute("giohang")) {
+			List<GioHang> listGioHangs = (List<GioHang>) httpSession.getAttribute("giohang");;
+			int vitri = kiemTraSPTonTaiGioHang(listGioHangs, httpSession, masp, mamau, masize);
+			listGioHangs.remove(vitri);
+		}
+	}
+	
 	@GetMapping("themgiohang")
 	@ResponseBody
 	public void themgiohang(@RequestParam String tensp, @RequestParam int maSp, @RequestParam int maSize , 
