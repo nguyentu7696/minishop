@@ -35,8 +35,6 @@ public class ApiController {
 		return ""+kiemtra;
 	}
 	
-	List<GioHang> lstGioHangs= new ArrayList<>();
-	
 	@GetMapping("themgiohang")
 	@ResponseBody
 	public void themgiohang(@RequestParam String tensp, @RequestParam int maSp, @RequestParam int maSize , 

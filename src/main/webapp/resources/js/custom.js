@@ -86,4 +86,32 @@ $(document).ready(function(){
 		});
 	});
 	
+	var tongtiensp = 0;
+	ganTongTienGioHang();
+	
+	function ganTongTienGioHang(isEventChange){
+		var tongtiensp = 0;
+		$(".giatien").each(function(){
+			var giatien = $(this).text();
+			var formatGiaTien = parseFloat(giatien).toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
+
+			if(!isEventChange){
+				$(this).html(formatGiaTien);
+			}
+
+			tongtiensp = tongtiensp + parseFloat(formatGiaTien);
+
+			var formatTongtien = tongtiensp.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
+			$("#tongtien").html(formatTongtien + "");
+		})
+	}
+
+	$(".soluong-giohang").change(function(){
+		var soluong = $(this).val();
+		var giatien = $(this).closest("tr").find(".giatien").attr("data-value");
+		var tongtien = soluong * parseInt(giatien);
+		var format = tongtien.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
+		$(this).closest("tr").find(".giatien").html(format);
+		ganTongTienGioHang(true);
+	})
 });

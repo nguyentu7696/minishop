@@ -103,14 +103,14 @@
                                 <td> ${ value.getTensp() }</td>
                                 <td class="mau" data-mamau="${value.getMaMau() }">${value.getTenMau() }</td>
                                 <td class="size" data-masize="${value.getMaSize() }"> ${value.getTenSize() } </td>
-                                <td class="soluong"><input type="number" value="${value.getSoLuong() }"/> </td>
-                                <td>${value.getGiaTien()}</td>
+                                <td class="soluong"><input min="1" type="number" class="soluong-giohang" value="${value.getSoLuong() }"/> </td>
+                                <td class="giatien"  data-value="${value.getGiaTien()}" >${value.getGiaTien()}</td>
                                 <td class="btn btn-danger">Xóa</td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                <h4>Tổng tiền: <span style="color: red">1,800,000</span></h4>
+                <h4>Tổng tiền: <span  id="tongtien" style="color: red">1,800,000</span></h4>
             </div>
             <div class="col-md-6 col-sm-12">
                 <h3>Thông tin người nhận/mua</h3>
