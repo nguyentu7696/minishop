@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,6 +34,17 @@ public class ApiController {
 		Boolean kiemtra = nhanvienService.kiemTraDangNhap(email, matkhau);
 		modelMap.addAttribute("user", email);
 		return ""+kiemtra;
+	}
+	
+	@GetMapping("capnhatgiohang")
+	@ResponseBody
+	public void capNhatGioHang(HttpSession httpSession, @RequestParam int soluong,
+			@RequestParam int masp, @RequestParam int mamau, @RequestParam int masize) {
+		if(null!=httpSession.getAttribute("giohang")) {
+			List<GioHang> listGioHangs = (List<GioHang>) httpSession.getAttribute("giohang");;
+			int vitri = kiemTraSPTonTaiGioHang(listGioHangs, httpSession, masp, mamau, masize);
+			listGioHangs.get(vitri).setSoLuong(soluong);
+		}
 	}
 	
 	@GetMapping("themgiohang")

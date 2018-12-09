@@ -100,7 +100,7 @@
                         <c:forEach var="value"
                             items="${ giohang }">
                             <tr>
-                                <td> ${ value.getTensp() }</td>
+                                <td class="tensp" data-masp="${ value.getMaSp()}"> ${ value.getTensp() }</td>
                                 <td class="mau" data-mamau="${value.getMaMau() }">${value.getTenMau() }</td>
                                 <td class="size" data-masize="${value.getMaSize() }"> ${value.getTenSize() } </td>
                                 <td class="soluong"><input min="1" type="number" class="soluong-giohang" value="${value.getSoLuong() }"/> </td>

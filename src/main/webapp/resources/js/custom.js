@@ -88,18 +88,22 @@ $(document).ready(function(){
 	
 	var tongtiensp = 0;
 	ganTongTienGioHang();
-	
+
 	function ganTongTienGioHang(isEventChange){
 		var tongtiensp = 0;
 		$(".giatien").each(function(){
+			var soluong = $(this).closest("tr").find(".soluong-giohang").val();
 			var giatien = $(this).text();
-			var formatGiaTien = parseFloat(giatien).toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
+
+			var tongtien = parseFloat(giatien) * soluong;
+
+			var formatGiaTien = parseFloat(tongtien).toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
 
 			if(!isEventChange){
 				$(this).html(formatGiaTien);
 			}
 
-			tongtiensp = tongtiensp + parseFloat(formatGiaTien);
+			tongtiensp = tongtiensp + tongtien;
 
 			var formatTongtien = tongtiensp.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
 			$("#tongtien").html(formatTongtien + "");
@@ -113,5 +117,47 @@ $(document).ready(function(){
 		var format = tongtien.toFixed(3).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").toString();
 		$(this).closest("tr").find(".giatien").html(format);
 		ganTongTienGioHang(true);
+
+		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");		
+		var masize = $(this).closest("tr").find(".size").attr("data-masize");
+		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
+
+		$.ajax({
+			url:"/api/capnhatgiohang",
+			type:"GET",
+			data:{
+				masp: masp,
+				masize: masize,
+				mamau: mamau,
+				soluong: soluong,
+			},
+			success: function(value){
+				//luoo luon thanh cong vi khong dong vao db
+			}
+		})
 	})
+
+
+	// $(".soluong-giohang").blur(function(){
+	// 	// thuc hien khi mat focus
+	// 	var soluong = $(this).val();
+	// 	var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");		
+	// 	var masize = $(this).closest("tr").find(".size").attr("data-masize");
+	// 	var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
+
+	// 	$.ajax({
+	// 		url:"/api/capnhatgiohang",
+	// 		type:"GET",
+	// 		data:{
+	// 			masp: masp,
+	// 			masize: masize,
+	// 			mamau: mamau,
+	// 			soluong: soluong,
+	// 		},
+	// 		success: function(value){
+	// 			//luoo luon thanh cong vi khong dong vao db
+	// 		}
+	// 	})
+	// })
+
 });
