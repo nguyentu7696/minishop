@@ -99,7 +99,7 @@
                     <tbody>
                         <c:forEach var="value"
                             items="${ giohang }">
-                            <tr>
+                            <tr data-machitiet="${value.getMaChiTiet()}">
                                 <td class="tensp" data-masp="${ value.getMaSp()}"> ${ value.getTensp() }</td>
                                 <td class="mau" data-mamau="${value.getMaMau() }">${value.getTenMau() }</td>
                                 <td class="size" data-masize="${value.getMaSize() }"> ${value.getTenSize() } </td>
@@ -116,24 +116,24 @@
                 <h3>Thông tin người nhận/mua</h3>
                 <div class="form-group">
                     <form action="" method="POST">
-                        <label for="tennguoimua">Tên người mua</label>
-                        <input id="tennguoimua" class="form-control"/>
+                        <label for="tenKhachHang">Tên người mua</label>
+                        <input id="tenKhachHang" name="tenKhachHang" class="form-control"/>
     
-                        <label for="dienthoailienlac">Điện thoại liên lạc</label>
-                        <input id="dienthoailienlac" class="form-control"/>
+                        <label for="sdt">Điện thoại liên lạc</label>
+                        <input id="sdt"  name="sdt" class="form-control"/>
     
                         <div class="radio">
-                            <label><input type="radio" name="rbHinhthuc" checked>giao Hàng tận nơi</label>
+                            <label><input type="radio" name="hinhThucGiaoHang" checked value="Giao Hàng tận nơi">Giao Hàng tận nơi</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="rbHinhthuc">Nhận hàng tại cửa hàng</label>
+                            <label><input type="radio" name="hinhThucGiaoHang" value="Giao Hàng tận nơi">Nhận hàng tại cửa hàng</label>
                         </div> 
     
-                        <label for="diachi">Tên người mua</label>
-                        <input id="diachi" class="form-control"/>
+                        <label for="diaChiGiaoHang">Tên người mua</label>
+                        <input id="diaChiGiaoHang" name="diaChiGiaoHang" class="form-control"/>
     
-                        <label for="ghichu">Ghi chú</label>
-                        <textarea class="form-control" rows="5" id="ghichu"></textarea>
+                        <label for="ghiChu">Ghi chú</label>
+                        <textarea class="form-control" rows="5" id="ghiChu" name="ghiChu"></textarea>
 
                         <br>
 

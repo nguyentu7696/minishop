@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 06, 2018 lúc 01:15 PM
+-- Thời gian đã tạo: Th12 12, 2018 lúc 12:34 PM
 -- Phiên bản máy phục vụ: 10.1.32-MariaDB
 -- Phiên bản PHP: 5.6.36
 
@@ -60,6 +60,14 @@ CREATE TABLE `chi_tiet_san_pham` (
   `so_luong` int(11) DEFAULT NULL,
   `ngay_nhap` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `chi_tiet_san_pham`
+--
+
+INSERT INTO `chi_tiet_san_pham` (`id`, `san_pham_id`, `size_id`, `mau_id`, `so_luong`, `ngay_nhap`) VALUES
+(1, 1, 2, 4, 2, '8/12/2018'),
+(2, 1, 1, 5, 3, '08/12/2018');
 
 -- --------------------------------------------------------
 
@@ -316,7 +324,7 @@ ALTER TABLE `size_san_pham`
 -- AUTO_INCREMENT cho bảng `chi_tiet_san_pham`
 --
 ALTER TABLE `chi_tiet_san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `chuc_vu`

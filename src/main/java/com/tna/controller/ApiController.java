@@ -62,7 +62,8 @@ public class ApiController {
 	@ResponseBody
 	public void themgiohang(@RequestParam String tensp, @RequestParam int maSp, @RequestParam int maSize , 
 			@RequestParam int maMau, @RequestParam int soLuong, @RequestParam String giaTien, 
-			@RequestParam String tenMau, @RequestParam String tenSize, HttpSession httpSession) {
+			@RequestParam String tenMau, @RequestParam String tenSize, HttpSession httpSession,
+			@RequestParam int machitiet) {
 		
 		if(null==httpSession.getAttribute("giohang")) {
 			List<GioHang> giohangs = new ArrayList<>();
@@ -76,6 +77,7 @@ public class ApiController {
 			gioHang.setTenMau(tenMau);
 			gioHang.setTenSize(tenSize);
 			gioHang.setTensp(tensp);
+			gioHang.setMaChiTiet(machitiet);
 			
 			giohangs.add(gioHang);
 			httpSession.setAttribute("giohang", giohangs);
@@ -92,6 +94,8 @@ public class ApiController {
 				gioHang.setTenMau(tenMau);
 				gioHang.setTenSize(tenSize);
 				gioHang.setTensp(tensp);
+				gioHang.setMaChiTiet(machitiet);
+				
 				listGioHangs.add(gioHang);
 			}else {
 				int soluongMoi = listGioHangs.get(vitri).getSoLuong() + 1;

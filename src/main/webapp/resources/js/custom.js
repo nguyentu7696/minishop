@@ -43,7 +43,7 @@ $(document).ready(function(){
 	});
 	
 	$(".btn-giohang").click(function(){
-		
+		var machitiet = $(this).attr("data-machitiet");
 		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 		var tenmau = $(this).closest("tr").find(".mau").text();
 		
@@ -68,7 +68,8 @@ $(document).ready(function(){
 				soLuong: soluong,
 				giaTien: giatien,
 				tenMau: tenmau,
-				tenSize: tensize
+				tenSize: tensize,
+				machitiet: machitiet
 			},
 			success: function(value){
 				//luoo luon thanh cong vi khong dong vao db

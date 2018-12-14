@@ -24,7 +24,7 @@ public class HoaDon implements Serializable{
 	@Column(name="ten_khach_hang")
 	private String tenKhachHang;
 	
-	@Column(name="s")
+	@Column(name="sdt")
 	private String sdt;
 	
 	@Column(name="dia_chi_giao_hang")
@@ -39,6 +39,28 @@ public class HoaDon implements Serializable{
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="hoa_don_id")
 	private Set<ChiTietHoaDon> danhSachChiTietHoaDon;
+	
+	@Column(name="hinh_thuc_giao_hang")
+	private String hinhThucGiaoHang;
+	
+	@Column(name="ghi_chu")
+	private String ghiChu;
+	
+	public String getHinhThucGiaoHang() {
+		return hinhThucGiaoHang;
+	}
+
+	public void setHinhThucGiaoHang(String hinhThucGiaoHang) {
+		this.hinhThucGiaoHang = hinhThucGiaoHang;
+	}
+
+	public String getGhiChu() {
+		return ghiChu;
+	}
+
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
 
 	public int getId() {
 		return id;

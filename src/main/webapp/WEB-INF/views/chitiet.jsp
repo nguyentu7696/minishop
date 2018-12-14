@@ -30,7 +30,7 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-center">
-					<li class="active"><a href="#">TRANG CHá»¦</a></li>
+					<li class="active"><a href="/">TRANG CHỦ</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -59,7 +59,7 @@
 							<li><a href="dangnhap/"><span>đăng nhập</span></a></li>
 						</c:otherwise>
 					</c:choose>
-					<li id="giohang"><a href="#"><img alt=""
+					<li id="giohang"><a href="/gio-hang"><img alt=""
 							src="<c:url value="/resources/image/icon_cart.png" />">
 
 							<c:if test = "${soluongsanphamgiohang > 0}">
@@ -118,7 +118,7 @@
 										<td class="mau" data-mamau="${chitietsanpham.getMauSanPham().getId() }">${chitietsanpham.getMauSanPham().getTenMau() }</td>
 										<td class="size" data-masize="${chitietsanpham.getSizeSanPham().getId() }"> ${chitietsanpham.getSizeSanPham().getSize() } </td>
 										<td class="soluong">${chitietsanpham.getSoLuong() }</td>
-										<td><button class=" btn btn-success btn-giohang">giỏ hàng</button></td>
+										<td><button data-machitiet="${chitietsanpham.getId()}" class=" btn btn-success btn-giohang">giỏ hàng</button></td>
 									</tr>
 								</c:forEach>
 							</tbody>
