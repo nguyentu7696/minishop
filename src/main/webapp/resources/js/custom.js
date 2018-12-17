@@ -184,4 +184,25 @@ $(document).ready(function(){
 	// 	})
 	// })
 
+
+	//phan trang
+	$("body").on("click", ".paging-item" , function(){
+		$(".paging-item").removeClass("active");
+		$(this).addClass("active");
+		var sotrang = $(this).text();
+		var spBatDau = (sotrang - 1) * 5;
+		$.ajax({
+			url:"/api/laysplimit",
+			type:"GET",
+			data:{
+				spBatDau: spBatDau,
+			},
+			success: function(value){
+				var tbodySanPham = $("#table-sanpham").find("tbody");
+				tbodySanPham.empty();
+				tbodySanPham.append(value);
+			}
+		})
+	})
+
 });
