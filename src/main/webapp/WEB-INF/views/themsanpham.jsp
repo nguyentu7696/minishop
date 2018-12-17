@@ -15,7 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>Pooled Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Pooled Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    <meta name="keywords" content="Pooled Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
@@ -39,10 +39,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="page-container">
         <!--/content-inner-->
         <div class="left-content">
+          <h3>San pham</h3>
             <div class="row">
-                <h3>San pham</h3>
+              <div class="col-md-6 col-sm-12 form-group">
+                <label for="tensanpham">ten san pham</label>
+                <input type="text" id="tensanpham" class="form-control" value="" placeholder="Nhap vao ten san pham"><br>
+
+                <label for="giatien">Gia tien</label>
+                <input type="text" id="giatien" class="form-control" value="" placeholder="Nhap vao gia tien"><br>
+
+                  <label for="danhmuc">Select list:</label>
+                  <select class="form-control" id="danhmuc">
+                    <c:forEach var="valdanhmuc" items="${danhMucs}">
+                      <option value="${valdanhmuc.getId()}"> ${valdanhmuc.getTenDanhMuc()}</option>
+                    </c:forEach>
+                  </select><br>
+
+                <label for="mota">Mo Ta</label>
+                <textarea id="mota" rows="5" class="form-control" placeholder="Them mo ta"></textarea>
+
+                <label for="hinhanh">Hinh anh</label>
+                <input type="file" id="hinhanh" class="form-control-file" value="" placeholder="Nhap vao gia tien"><br>
+
+                <span>Gianh cho</span><br>
+                <label class="radio-inline">
+                  <input type="radio" name="gianhcho" checked>Nam
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="gianhcho">Nu
+                </label>
+                <br>
+                <button class="btn btn-primary">them san pham</button>
+
+              </div>
+              <div class="col-md-6 col-sm-12">
                 <div style="float: right;">
-                    <button class="btn btn-primary">them san pham</button>
                     <button id="xoa-sanpham" class="btn btn-danger">xoa</button>
                 </div>
                 <table id="table-sanpham" class="table">
@@ -94,6 +125,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </c:choose>
                     </c:forEach>
                 </ul>
+              </div>
+
 
             </div>
         </div>
@@ -265,7 +298,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- morris JavaScript -->
     <script src='<c:url value="/resources/js/raphael-min.js" />'></script>
     <script src='<c:url value="/resources/js/morris.js" />'></script>
-    
+
     <script>
         $(document).ready(function () {
             //BOX BUTTON SHOW AND CLOSE

@@ -57,7 +57,7 @@ public class SanPhamDAO implements SanPhamImp {
 		
 		Set<ChiTietSanPham> chiTietSanPhams = sanPham.getChiTietSanPhams();
 		for (ChiTietSanPham chiTietSanPham : chiTietSanPhams) {
-			session.createQuery("delete ChiTietSanPham where id = " + chiTietSanPham.getId()).executeUpdate();
+			session.createQuery("delete ChiTietHoaDon where id = " + chiTietSanPham.getId()).executeUpdate();
 		}
 		session.createQuery("delete ChiTietSanPham where id = " + id).executeUpdate();
 		session.createQuery("delete SanPham where id = " + id).executeUpdate();

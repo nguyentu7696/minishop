@@ -64,16 +64,16 @@
 
 							<c:if test = "${soluongsanphamgiohang > 0}">
 								<div class="circle-giohang">
-									<span>${ soluongsanphamgiohang }</span> 
+									<span>${ soluongsanphamgiohang }</span>
 								</div>
 							</c:if>
 
 							<c:if test = "${soluongsanphamgiohang <= 0  || soluongsanphamgiohang == null }">
 								<div>
-									<span>${ soluongsanphamgiohang }</span> 
+									<span>${ soluongsanphamgiohang }</span>
 								</div>
 							</c:if>
-							
+
 							</a></li>
 				</ul>
 			</div>
@@ -87,9 +87,9 @@
 			<div class="col-md-2 col-sm-2">
 				<h3>Danh má»¥c</h3>
 				<ul class="mymenu">
-					<c:forEach var="danhmuc" 
-						items=" ${ danhMucs }">
-						<li><a href="#"> ${danhmuc}  </a></li>
+					<c:forEach var="valdanhmuc"
+						items="${danhMucs}">
+						<li><a href="#"> ${valdanhmuc.getTenDanhMuc()}  </a></li>
 					</c:forEach>
 				</ul>
 			</div>
