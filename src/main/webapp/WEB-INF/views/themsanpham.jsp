@@ -43,10 +43,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="row">
               <div class="col-md-6 col-sm-12 form-group">
                 <label for="tensanpham">ten san pham</label>
-                <input type="text" id="tensanpham" class="form-control" value="" placeholder="Nhap vao ten san pham"><br>
+                <input type="text" id="tensanpham" name="tensanpham" class="form-control" value="" placeholder="Nhap vao ten san pham"><br>
 
                 <label for="giatien">Gia tien</label>
-                <input type="text" id="giatien" class="form-control" value="" placeholder="Nhap vao gia tien"><br>
+                <input type="text" id="giatien" name="giatien" class="form-control" value="" placeholder="Nhap vao gia tien"><br>
 
                   <label for="danhmuc">Select list:</label>
                   <select class="form-control" id="danhmuc">
@@ -56,10 +56,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   </select><br>
 
                 <label for="mota">Mo Ta</label>
-                <textarea id="mota" rows="5" class="form-control" placeholder="Them mo ta"></textarea>
+                <textarea id="mota" rows="5" name="mota" class="form-control" placeholder="Them mo ta"></textarea>
 
                 <label for="hinhanh">Hinh anh</label>
-                <input type="file" id="hinhanh" class="form-control-file" value="" placeholder="Nhap vao gia tien"><br>
+                <input type="file" id="hinhanh" name="hinhanh" class="form-control-file" value="" placeholder="Nhap vao gia tien"><br>
 
                 <span>Gianh cho</span><br>
                 <label class="radio-inline">

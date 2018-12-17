@@ -2,12 +2,12 @@ $(document).ready(function(){
 	$("#cot1").click(function(){
 		$(this).addClass("active");
 	});
-	
-	
+
+
 	$("#btnDangNhap").click(function(){
 		var email = $("#email").val();
 		var paasword = $("#matkhau").val();
-		
+
 		$.ajax({
 			url:"/api/kiemtradangnhap",
 			type:"GET",
@@ -26,30 +26,30 @@ $(document).ready(function(){
 			}
 		});
 	});
-	
-	
+
+
 	$("#dangnhap").click(function(){
 		$(this).addClass("active");
 		$("#dangky").removeClass("active");
 		$(".container-login-form").show();
-		$(".container-signup-form").css("display","none");		
+		$(".container-signup-form").css("display","none");
 	});
-	
+
 	$("#dangky").click(function(){
 		$(this).addClass("active");
 		$("#dangnhap").removeClass("active");
 		$(".container-signup-form").show();
 		$(".container-login-form").hide();
 	});
-	
+
 	$(".btn-giohang").click(function(){
 		var machitiet = $(this).attr("data-machitiet");
 		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 		var tenmau = $(this).closest("tr").find(".mau").text();
-		
+
 		var masize = $(this).closest("tr").find(".size").attr("data-masize");
 		var tensize = $(this).closest("tr").find(".size").text();
-		
+
 		var soluong = $(this).closest("tr").find(".soluong").text();
 
 		var tensp = $("#tensp").text();
@@ -86,7 +86,7 @@ $(document).ready(function(){
 			});
 		});
 	});
-	
+
 	var tongtiensp = 0;
 	ganTongTienGioHang();
 
@@ -114,7 +114,7 @@ $(document).ready(function(){
 
 	$(".xoa-giohang").click(function(){
 		var self = $(this);
-		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");		
+		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 		var masize = $(this).closest("tr").find(".size").attr("data-masize");
 		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
 
@@ -142,7 +142,7 @@ $(document).ready(function(){
 		$(this).closest("tr").find(".giatien").html(format);
 		ganTongTienGioHang(true);
 
-		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");		
+		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 		var masize = $(this).closest("tr").find(".size").attr("data-masize");
 		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
 
@@ -165,7 +165,7 @@ $(document).ready(function(){
 	// $(".soluong-giohang").blur(function(){
 	// 	// thuc hien khi mat focus
 	// 	var soluong = $(this).val();
-	// 	var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");		
+	// 	var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 	// 	var masize = $(this).closest("tr").find(".size").attr("data-masize");
 	// 	var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
 
@@ -233,6 +233,25 @@ $(document).ready(function(){
 				}
 			})
 		})
+	})
+
+	var files = [];
+	$("#hinhanh").change(function(event){
+		files = event.target.files;
+		forms = new FormData();
+		forms.append("file", files[0])
+		$.ajax({
+			url:"/api/uploadfile",
+			type:"POST",
+			contentType: false,
+			data:forms,
+			processData: false,
+			enctype: "multipar/form-data",
+			success: function(value){
+				This.closest("tr").remove();
+			}
+
+
 	})
 
 });
