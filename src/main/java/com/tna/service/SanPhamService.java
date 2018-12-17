@@ -25,4 +25,16 @@ public class SanPhamService implements SanPhamImp{
 		return sanPhamDAO.layChiTietSanPhamTheoMa(maSanPham);
 	}
 
+	@Override
+	public boolean XoaSpTheoMa(int id) {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.XoaSpTheoMa(id);
+	}
+
+	@Override
+	public List<SanPham> laySPTheoDanhMuc(int idDanhMuc) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -41,13 +41,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="left-content">
             <div class="row">
                 <h3>San pham</h3>
+                <div style="float: right;">
+                    <button class="btn btn-primary">them san pham</button>
+                    <button id="xoa-sanpham" class="btn btn-danger">xoa</button>
+                </div>
                 <table id="table-sanpham" class="table">
                     <thead>
                         <tr>
                             <td>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" value="">
+                                        <input id="check-all" type="checkbox" value="">
                                     </label>
                                 </div>
                             </td>
@@ -62,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <td>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" class="checkboxsanpham" value="">
+                                            <input type="checkbox" class="checkboxsanpham" value="${ value.getId()}">
                                         </label>
                                     </div>
                                 </td>

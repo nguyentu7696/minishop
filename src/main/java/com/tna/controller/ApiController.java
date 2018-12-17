@@ -149,7 +149,7 @@ public class ApiController {
 				html += "<td>\r\n" + 
 						"	<div class=\"checkbox\">\r\n" + 
 						"		<label>\r\n" + 
-						"			<input type=\"checkbox\" class=\"checkboxsanpham\" value=\"\">\r\n" + 
+						"			<input type=\"checkbox\" class=\"checkboxsanpham\" value=\" "+ sanPham.getId() +"  \">\r\n" + 
 						"		</label>\r\n" + 
 						"	</div>\r\n" + 
 						"</td>";
@@ -159,6 +159,13 @@ public class ApiController {
 			html += "</tr>";
 		}
 		return html;
+	}
+	
+	@GetMapping(path="xoasanpham", produces="plain/text;charset=utf-8")
+	@ResponseBody
+	public String xoaSanPhamTheoMa(@RequestParam int id) {
+		spService.XoaSpTheoMa(id);
+		return "";
 	}
 	
 }

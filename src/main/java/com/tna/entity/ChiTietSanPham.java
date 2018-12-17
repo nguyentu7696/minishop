@@ -26,15 +26,15 @@ public class ChiTietSanPham implements Serializable{
 	@Column(name="ngay_nhap")
 	private String ngayNhap;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name="san_pham_id")
 	private SanPham sanPham;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name="size_id")
 	private SizeSanPham sizeSanPham;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name="mau_id")
 	private MauSanPham mauSanPham;
 

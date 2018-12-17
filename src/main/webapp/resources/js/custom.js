@@ -205,4 +205,34 @@ $(document).ready(function(){
 		})
 	})
 
+
+	$("#check-all").change(function(){
+		if(this.checked){
+			$("#table-sanpham input").each(function(){
+				$(this).attr("checked", true);
+			})
+		}else{
+			$("#table-sanpham input").each(function(){
+				$(this).attr("checked", false);
+			})
+		}
+	})
+
+	$("#xoa-sanpham").click(function(){
+		$("#table-sanpham input:checked").each(function(){
+			var masp = $(this).val();
+			var This = $(this);
+			$.ajax({
+				url:"/api/xoasanpham",
+				type:"GET",
+				data:{
+					id: masp,
+				},
+				success: function(value){
+					This.closest("tr").remove();
+				}
+			})
+		})
+	})
+
 });

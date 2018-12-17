@@ -2,6 +2,7 @@ package com.tna.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tna.daoimp.SanPhamImp;
+import com.tna.entity.ChiTietSanPham;
 import com.tna.entity.SanPham;
 
 @Repository
@@ -21,6 +23,7 @@ public class SanPhamDAO implements SanPhamImp {
 	@Autowired
 	SessionFactory sessionFactory;
 
+	@Override
 	@Transactional
 	public List<SanPham> layDanhSachSanPhamLimit(int spbatdau) {
 		Session session = sessionFactory.getCurrentSession();
@@ -37,6 +40,7 @@ public class SanPhamDAO implements SanPhamImp {
 		return listSanPham;
 	}
 	
+	@Override
 	@Transactional
 	public SanPham layChiTietSanPhamTheoMa(int maSanPham){
 		Session session = sessionFactory.getCurrentSession();
@@ -45,9 +49,26 @@ public class SanPhamDAO implements SanPhamImp {
 		return sanPham;
 	}
 	
-	public List<SanPham> layDsSpTheoDanhMuc(int danhmuc){
+	@Override
+	@Transactional
+	public boolean XoaSpTheoMa(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		String query = "from SanPham sp where sp.danhMucSanPham.id = " + danhmuc;
+		SanPham sanPham = session.get(SanPham.class, id);
+		
+		Set<ChiTietSanPham> chiTietSanPhams = sanPham.getChiTietSanPhams();
+		for (ChiTietSanPham chiTietSanPham : chiTietSanPhams) {
+			session.createQuery("delete ChiTietSanPham where id = " + chiTietSanPham.getId()).executeUpdate();
+		}
+		session.createQuery("delete ChiTietSanPham where id = " + id).executeUpdate();
+		session.createQuery("delete SanPham where id = " + id).executeUpdate();
+		return false;
+	}
+
+	@Override
+	@Transactional
+	public List<SanPham> laySPTheoDanhMuc(int idDanhMuc) {
+		Session session = sessionFactory.getCurrentSession();
+		String query = "from SanPham sp where sp.danhMucSanPham.id = " + idDanhMuc;
 		List<SanPham> sanPhams = (List<SanPham>) session.createQuery(query).getSingleResult();
 		return sanPhams;
 	}
