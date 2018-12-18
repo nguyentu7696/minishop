@@ -39,7 +39,7 @@ public class SanPham {
 	@Column(name = "hinh_san_pham")
 	private String hinhSanPham;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "danh_muc_id")
 	private DanhMucSanPham danhMucSanPham;
 

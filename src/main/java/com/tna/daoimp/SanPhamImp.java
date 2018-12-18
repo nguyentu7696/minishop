@@ -12,4 +12,6 @@ public interface SanPhamImp {
 	public List<SanPham> laySPTheoDanhMuc(int idDanhMuc);
 	
 	boolean XoaSpTheoMa(int id);
+	
+	boolean themSanPham(SanPham sanPham);
 }

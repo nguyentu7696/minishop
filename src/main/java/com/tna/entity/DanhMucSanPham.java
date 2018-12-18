@@ -27,7 +27,7 @@ public class DanhMucSanPham implements Serializable{
 	@Column(name="hinh_danh_muc")
 	private String hinhDanhMuc;
 
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany()
 	@JoinColumn(name="danh_muc_id")
 	private Set<SanPham> danhSachSanPham;
 

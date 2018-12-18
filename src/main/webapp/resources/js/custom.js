@@ -235,9 +235,12 @@ $(document).ready(function () {
 		})
 	})
 
+	// upload file le server
 	var files = [];
+	var tenhinh="";
 	$("#hinhanh").change(function (event) {
 		files = event.target.files;
+		tenhinh = files[0].name;
 		forms = new FormData();
 		forms.append("file", files[0])
 		$.ajax({
@@ -271,6 +274,7 @@ $(document).ready(function () {
 		
 		$.each(formData, function(i, field){
 			json[field.name] = field.value;
+			
 		});
 		
 		$("#container-chitietsanpham > .chitietsanpham").each(function(){
@@ -286,7 +290,8 @@ $(document).ready(function () {
 			arrayChiTiet.push(objectChitet);
 		})
 
-		json["chitietsanpham"] = arrayChiTiet;
+		json["chiTietSanPhams"] = arrayChiTiet;
+		json["hinhSanPham"]= tenhinh;
 
 		$.ajax({
 			url: "/api/themsanpham",

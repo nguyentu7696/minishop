@@ -72,4 +72,12 @@ public class SanPhamDAO implements SanPhamImp {
 		List<SanPham> sanPhams = (List<SanPham>) session.createQuery(query).getSingleResult();
 		return sanPhams;
 	}
+
+	@Override
+	@Transactional
+	public boolean themSanPham(SanPham sanPham) {
+		Session session = sessionFactory.getCurrentSession();
+		int id = (int) session.save(sanPham);
+		return false;
+	}
 }

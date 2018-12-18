@@ -44,36 +44,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="row">
                 <form action="" id="form-sanpham">
                     <div class="col-md-6 col-sm-12 form-group">
-                        <label for="tensanpham">ten san pham</label>
-                        <input type="text" id="tensanpham" name="tensanpham" class="form-control" value="" placeholder="Nhap vao ten san pham">
+                        <label for="tenSanPham">ten san pham</label>
+                        <input type="text" id="tenSanPham" name="tenSanPham" class="form-control" value="" placeholder="Nhap vao ten san pham">
                         <br>
 
-                        <label for="giatien">Gia tien</label>
-                        <input type="text" id="giatien" name="giatien" class="form-control" value="" placeholder="Nhap vao gia tien">
+                        <label for="giaTien">Gia tien</label>
+                        <input type="text" id="giaTien" name="giaTien" class="form-control" value="" placeholder="Nhap vao gia tien">
                         <br>
 
-                        <label for="danhmuc">Select list:</label>
-                        <select class="form-control" id="danhmuc" name="danhmuc">
+                        <label for="danhMucSanPham">Select list:</label>
+                        <select class="form-control" id="danhMucSanPham" name="danhMucSanPham">
                             <c:forEach var="valdanhmuc" items="${danhMucs}">
                                 <option value="${valdanhmuc.getId()}"> ${valdanhmuc.getTenDanhMuc()}</option>
                             </c:forEach>
                         </select>
                         <br>
 
-                        <label for="mota">Mo Ta</label>
-                        <textarea id="mota" rows="5" name="mota" class="form-control" placeholder="Them mo ta"></textarea>
+                        <label for="moTa">Mo Ta</label>
+                        <textarea id="moTa" rows="5" name="moTa" class="form-control" placeholder="Them mo ta"></textarea>
 
-                        <label for="hinhanh">Hinh anh</label>
-                        <input type="file" id="hinhanh" name="hinhanh" class="form-control-file" value="" placeholder="Nhap vao gia tien">
+                        <label for="hinhSanPham">Hinh anh</label>
+                        <input type="file" id="hinhSanPham" name="hinhSanPham" class="form-control-file" value="" placeholder="Nhap vao gia tien">
                         <br>
 
                         <span>Gianh cho</span>
                         <br>
                         <label class="radio-inline">
-                            <input type="radio" name="gianhcho" value="nam" checked>Nam
+                            <input type="radio" name="gianhCho" value="nam" checked>Nam
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="gianhcho" value="nu">Nu
+                            <input type="radio" name="gianhCho" value="nu">Nu
                         </label>
                         <br>
                 </form>
