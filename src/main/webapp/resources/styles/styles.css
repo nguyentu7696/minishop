@@ -333,6 +333,20 @@ a.circle-avatar:hover{
 
 /* end chi tiet */
 
+
+/* them san pham */
+#chitietsanpham{
+	display: none;
+}
+
+.btn-chitiet{
+	display: block;
+	margin-right: 0;
+	margin-left: auto;
+}
+
+/* end them san pham */
+
 @media ( max-width : 575px) {
 	.navbar-center {
 		margin-left: 0% !important;

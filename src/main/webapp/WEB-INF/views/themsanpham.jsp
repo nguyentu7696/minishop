@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Custom CSS -->
     <link rel="stylesheet" href='<c:url value="/resources/css/style.css" />' type='text/css' />
     <link rel="stylesheet" href='<c:url value="/resources/css/morris.css" />' type='text/css' />
+    <link rel="stylesheet" href='<c:url value="/resources/styles/styles.css" />' type='text/css' />
     <!-- Graph CSS -->
     <link rel="stylesheet" href='<c:url value="/resources/css/font-awesome.css" />' type='text/css' />
     <!-- jQuery -->
@@ -39,93 +40,154 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="page-container">
         <!--/content-inner-->
         <div class="left-content">
-          <h3>San pham</h3>
+            <h3>San pham</h3>
             <div class="row">
-              <div class="col-md-6 col-sm-12 form-group">
-                <label for="tensanpham">ten san pham</label>
-                <input type="text" id="tensanpham" name="tensanpham" class="form-control" value="" placeholder="Nhap vao ten san pham"><br>
+                <form action="" id="form-sanpham">
+                    <div class="col-md-6 col-sm-12 form-group">
+                        <label for="tensanpham">ten san pham</label>
+                        <input type="text" id="tensanpham" name="tensanpham" class="form-control" value="" placeholder="Nhap vao ten san pham">
+                        <br>
 
-                <label for="giatien">Gia tien</label>
-                <input type="text" id="giatien" name="giatien" class="form-control" value="" placeholder="Nhap vao gia tien"><br>
+                        <label for="giatien">Gia tien</label>
+                        <input type="text" id="giatien" name="giatien" class="form-control" value="" placeholder="Nhap vao gia tien">
+                        <br>
 
-                  <label for="danhmuc">Select list:</label>
-                  <select class="form-control" id="danhmuc">
-                    <c:forEach var="valdanhmuc" items="${danhMucs}">
-                      <option value="${valdanhmuc.getId()}"> ${valdanhmuc.getTenDanhMuc()}</option>
-                    </c:forEach>
-                  </select><br>
+                        <label for="danhmuc">Select list:</label>
+                        <select class="form-control" id="danhmuc" name="danhmuc">
+                            <c:forEach var="valdanhmuc" items="${danhMucs}">
+                                <option value="${valdanhmuc.getId()}"> ${valdanhmuc.getTenDanhMuc()}</option>
+                            </c:forEach>
+                        </select>
+                        <br>
 
-                <label for="mota">Mo Ta</label>
-                <textarea id="mota" rows="5" name="mota" class="form-control" placeholder="Them mo ta"></textarea>
+                        <label for="mota">Mo Ta</label>
+                        <textarea id="mota" rows="5" name="mota" class="form-control" placeholder="Them mo ta"></textarea>
 
-                <label for="hinhanh">Hinh anh</label>
-                <input type="file" id="hinhanh" name="hinhanh" class="form-control-file" value="" placeholder="Nhap vao gia tien"><br>
+                        <label for="hinhanh">Hinh anh</label>
+                        <input type="file" id="hinhanh" name="hinhanh" class="form-control-file" value="" placeholder="Nhap vao gia tien">
+                        <br>
 
-                <span>Gianh cho</span><br>
-                <label class="radio-inline">
-                  <input type="radio" name="gianhcho" checked>Nam
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="gianhcho">Nu
-                </label>
-                <br>
-                <button class="btn btn-primary">them san pham</button>
+                        <span>Gianh cho</span>
+                        <br>
+                        <label class="radio-inline">
+                            <input type="radio" name="gianhcho" value="nam" checked>Nam
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gianhcho" value="nu">Nu
+                        </label>
+                        <br>
+                </form>
 
-              </div>
-              <div class="col-md-6 col-sm-12">
-                <div style="float: right;">
-                    <button id="xoa-sanpham" class="btn btn-danger">xoa</button>
+                <div class="chitietsanpham" id="chitietsanpham">
+                    <span>Chi tiet</span>
+                    <br>
+
+                    <select class="form-control" id="mau" name="mau">
+                        <c:forEach var="valmau" items="${mauSanPhams}">
+                            <option value="${valmau.getId()}"> ${valmau.getTenMau()}</option>
+                        </c:forEach>
+                    </select>
+                    <br>
+
+                    <select class="form-control" id="size" name="size">
+                        <c:forEach var="valsize" items="${sizeSanPhams}">
+                            <option value="${valsize.getId()}"> ${valsize.getSize()}</option>
+                        </c:forEach>
+                    </select>
+                    <br>
+
+                    <label for="soluong">So luong</label>
+
+                    <input min="1" type="number" id="soluong" name="soluong" class="form-control" value="1" placeholder="Nhap so luong">
+                    <br>
+                    <button class="btn btn-default btn-chitiet">them chi tiet</button>
                 </div>
-                <table id="table-sanpham" class="table">
-                    <thead>
-                        <tr>
-                            <td>
-                                <div class="checkbox">
-                                    <label>
-                                        <input id="check-all" type="checkbox" value="">
-                                    </label>
-                                </div>
-                            </td>
-                            <td>Tên Sản phẩm</td>
-                            <td>Giá tiền</td>
-                            <td>Giành cho</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="value" items="${ lstsp }">
+
+                <div id="container-chitietsanpham">
+                    <div class="chitietsanpham">
+                        <span>Chi tiet</span>
+                        <br>
+
+                        <select class="form-control" id="mau" name="mau">
+                            <c:forEach var="valmau" items="${mauSanPhams}">
+                                <option value="${valmau.getId()}"> ${valmau.getTenMau()}</option>
+                            </c:forEach>
+                        </select>
+                        <br>
+
+                        <select class="form-control" id="size" name="size">
+                            <c:forEach var="valsize" items="${sizeSanPhams}">
+                                <option value="${valsize.getId()}"> ${valsize.getSize()}</option>
+                            </c:forEach>
+                        </select>
+                        <br>
+
+                        <label for="soluong">So luong</label>
+                        <input min="1" type="number" id="soluong" name="soluong" class="form-control" value="1" placeholder="Nhap so luong">
+                        <br>
+
+                        <button class="btn btn-default btn-chitiet">them chi tiet</button>
+
+                    </div>
+                </div>
+
+                <button id="btn-themsanpham" class="btn btn-primary">them san pham</button>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div style="float: right;">
+                        <button id="xoa-sanpham" class="btn btn-danger">xoa</button>
+                    </div>
+                    <table id="table-sanpham" class="table">
+                        <thead>
                             <tr>
                                 <td>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" class="checkboxsanpham" value="${ value.getId()}">
+                                            <input id="check-all" type="checkbox" value="">
                                         </label>
                                     </div>
                                 </td>
-                                <td class="tensp" data-masp="${ value.getId()}"> ${ value.getTenSanPham() }</td>
-                                <td class="giatien" data-value="${value.getGiaTien()}">${value.getGiaTien()}</td>
-                                <td class="gianhcho" data-value="${value.getGianhCho()}">${value.getGianhCho()}</td>
+                                <td>Tên Sản phẩm</td>
+                                <td>Giá tiền</td>
+                                <td>Giành cho</td>
                             </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="value" items="${ lstsp }">
+                                <tr>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="checkboxsanpham" value="${ value.getId()}">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td class="tensp" data-masp="${ value.getId()}"> ${ value.getTenSanPham() }</td>
+                                    <td class="giatien" data-value="${value.getGiaTien()}">${value.getGiaTien()}</td>
+                                    <td class="gianhcho" data-value="${value.getGianhCho()}">${value.getGianhCho()}</td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
 
-                <ul class="pagination">
-                    <c:forEach var="i" begin="1" end="${tongSp}">
-                        <c:choose>
-                            <c:when test="${i == 1}">
-                                <li class="paging-item active">
-                                    <a href="#">${i}</a>
-                                </li>
-                            </c:when>
-                            <c:otherwise>
-                                <li>
-                                    <a href="#">${i}</a>
-                                </li>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:forEach>
-                </ul>
-              </div>
+                    <ul class="pagination">
+                        <c:forEach var="i" begin="1" end="${tongSp}">
+                            <c:choose>
+                                <c:when test="${i == 1}">
+                                    <li class="paging-item active">
+                                        <a href="#">${i}</a>
+                                    </li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li>
+                                        <a href="#">${i}</a>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </ul>
+                </div>
 
 
             </div>

@@ -205,4 +205,10 @@ public class ApiController {
 		return "";
 	}
 	
+	@PostMapping("themsanpham")
+	@ResponseBody
+	public void themsanpham(@RequestParam String dataJson ) {
+		System.out.println(dataJson);
+	}
+	
 }
