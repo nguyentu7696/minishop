@@ -70,10 +70,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Gianh cho</span>
                         <br>
                         <label class="radio-inline">
-                            <input type="radio" name="gianhCho" value="nam" checked>Nam
+                            <input type="radio" id="rd-nam" name="gianhCho" value="nam" checked>Nam
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="gianhCho" value="nu">Nu
+                            <input type="radio" id="rd-nu" name="gianhCho" value="nu">Nu
                         </label>
                         <br>
                 </form>
@@ -166,6 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <td class="tensp" data-masp="${ value.getId()}"> ${ value.getTenSanPham() }</td>
                                     <td class="giatien" data-value="${value.getGiaTien()}">${value.getGiaTien()}</td>
                                     <td class="gianhcho" data-value="${value.getGianhCho()}">${value.getGianhCho()}</td>
+                                    <td class="btn btn-warning capnhatsanpham" data-id="${ value.getId()}">Sua</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

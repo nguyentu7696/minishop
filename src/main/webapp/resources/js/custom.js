@@ -308,4 +308,20 @@ $(document).ready(function () {
 	});
 
 
+	$("body").on("click", ".capnhatsanpham", function(){
+		maSp = $(this).attr("data-id");
+		$.ajax({
+			url: "/api/laydssanphamtheoma",
+			type: "POST",
+			data: {
+				id: maSp
+			},
+			success: function (value) {
+				
+			}
+
+
+		});
+	});
+
 });

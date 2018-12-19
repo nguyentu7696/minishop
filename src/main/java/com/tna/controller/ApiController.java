@@ -30,6 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tna.entity.ChiTietSanPham;
 import com.tna.entity.DanhMucSanPham;
 import com.tna.entity.GioHang;
+import com.tna.entity.JsonSanPham;
 import com.tna.entity.MauSanPham;
 import com.tna.entity.SanPham;
 import com.tna.entity.SizeSanPham;
@@ -174,6 +175,7 @@ public class ApiController {
 				html += "<td class=\"tensp\" data-masp=\" "+ sanPham.getId() + " + \"> " + sanPham.getTenSanPham() + "</td>";
 				html += "<td class=\"giatien\" data-value=\""+ sanPham.getGiaTien()+"\">"+ sanPham.getGiaTien()+"</td>";
 				html += "<td class=\"gianhcho\" data-value=\" " + sanPham.getGianhCho() +" \"> " + sanPham.getGianhCho() + " </td>";
+				html += "<td class=\"btn btn-warning capnhatsanpham\" data-id=\" "+ sanPham.getId() + " \">Sua</td>";
 			html += "</tr>";
 		}
 		return html;
@@ -263,6 +265,52 @@ public class ApiController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	@PostMapping(path="laydssanphamtheoma", produces="application/json;charset=utf-8")
+	@ResponseBody
+	public JsonSanPham layDSSpTheoMa(@RequestParam int id) {
+		JsonSanPham json_sp = new JsonSanPham();
+		
+		SanPham sp =  spService.layChiTietSanPhamTheoMa(id);
+		
+		json_sp.setId(sp.getId());
+		json_sp.setTenSanPham(sp.getTenSanPham());
+		json_sp.setGiaTien(sp.getGiaTien());
+		json_sp.setMoTa(sp.getMoTa());
+		json_sp.setGianhCho(sp.getGianhCho());
+		json_sp.setHinhSanPham(sp.getHinhSanPham());
+		
+		DanhMucSanPham danhMucSanPham = new DanhMucSanPham();
+		danhMucSanPham.setId(sp.getDanhMucSanPham().getId());
+		danhMucSanPham.setTenDanhMuc(sp.getDanhMucSanPham().getTenDanhMuc());
+		
+		json_sp.setDanhMucSanPham(danhMucSanPham);
+		
+		Set<ChiTietSanPham> chiTietSanPhams = new HashSet<>();
+		for (ChiTietSanPham value : sp.getChiTietSanPhams()) {
+			ChiTietSanPham chiTietSp = new ChiTietSanPham();
+			
+			chiTietSp.setId(value.getId());
+			
+			MauSanPham mauSanPham = new MauSanPham();
+			mauSanPham.setId(value.getMauSanPham().getId());
+			mauSanPham.setTenMau(value.getMauSanPham().getTenMau());
+			
+			chiTietSp.setMauSanPham(mauSanPham);
+			
+			SizeSanPham sizeSanPham = new SizeSanPham();
+			sizeSanPham.setId(value.getSizeSanPham().getId());
+			sizeSanPham.setSize(value.getSizeSanPham().getSize());
+			
+			chiTietSp.setSizeSanPham(sizeSanPham);
+			chiTietSp.setSoLuong(value.getSoLuong());
+			
+			chiTietSanPhams.add(chiTietSp);
+		}
+		json_sp.setChiTietSanPhams(chiTietSanPhams);
+		
+		return json_sp;
 	}
 	
 }
