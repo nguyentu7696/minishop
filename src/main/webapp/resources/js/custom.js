@@ -317,7 +317,7 @@ $(document).ready(function () {
 				id: maSp
 			},
 			success: function (value) {
-				
+				// hien nhung j json trả ve len thanh phan trong form
 			}
 
 

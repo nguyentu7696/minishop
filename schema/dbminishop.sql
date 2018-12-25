@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 12, 2018 lúc 12:34 PM
+-- Thời gian đã tạo: Th12 25, 2018 lúc 01:01 PM
 -- Phiên bản máy phục vụ: 10.1.32-MariaDB
 -- Phiên bản PHP: 5.6.36
 
@@ -61,14 +61,6 @@ CREATE TABLE `chi_tiet_san_pham` (
   `ngay_nhap` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Đang đổ dữ liệu cho bảng `chi_tiet_san_pham`
---
-
-INSERT INTO `chi_tiet_san_pham` (`id`, `san_pham_id`, `size_id`, `mau_id`, `so_luong`, `ngay_nhap`) VALUES
-(1, 1, 2, 4, 2, '8/12/2018'),
-(2, 1, 1, 5, 3, '08/12/2018');
-
 -- --------------------------------------------------------
 
 --
@@ -104,7 +96,6 @@ CREATE TABLE `danh_muc_san_pham` (
 --
 
 INSERT INTO `danh_muc_san_pham` (`id`, `ten_danh_muc`, `hinh_danh_muc`) VALUES
-(1, 'Áo sơ mi', ''),
 (2, 'Áo thun', ''),
 (3, 'Quần Sort', ''),
 (4, 'Đồ kiểu', ''),
@@ -126,8 +117,19 @@ CREATE TABLE `hoa_don` (
   `sdt` char(12) DEFAULT NULL,
   `dia_chi_giao_hang` varchar(200) DEFAULT NULL,
   `tinh_trang` bit(1) DEFAULT NULL,
-  `ngay_lap` varchar(50) DEFAULT NULL
+  `ngay_lap` varchar(50) DEFAULT NULL,
+  `hinh_thuc_giao_hang` varchar(255) DEFAULT NULL,
+  `ghi_chu` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `hoa_don`
+--
+
+INSERT INTO `hoa_don` (`id`, `ten_khach_hang`, `sdt`, `dia_chi_giao_hang`, `tinh_trang`, `ngay_lap`, `hinh_thuc_giao_hang`, `ghi_chu`) VALUES
+(1, '', '', '', NULL, NULL, 'Giao HÃ ng táº­n nÆ¡i', ''),
+(2, '', '', '', NULL, NULL, 'Giao HÃ ng táº­n nÆ¡i', ''),
+(3, '', '', '', NULL, NULL, 'Giao HÃ ng táº­n nÆ¡i', '');
 
 -- --------------------------------------------------------
 
@@ -210,13 +212,6 @@ CREATE TABLE `san_pham` (
   `hinh_san_pham` text,
   `gianh_cho` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Đang đổ dữ liệu cho bảng `san_pham`
---
-
-INSERT INTO `san_pham` (`id`, `danh_muc_id`, `ten_san_pham`, `gia_tien`, `mo_ta`, `hinh_san_pham`, `gianh_cho`) VALUES
-(1, 1, 'Áo sơ mi nam no style TN001', '185,000', 'Thiết kế áo sơ mi dễ dàng basic, dễ dàng sử dụng', '33745328_645013329175800_5540765423978414080_n.jpg', 'nam');
 
 -- --------------------------------------------------------
 
@@ -324,7 +319,7 @@ ALTER TABLE `size_san_pham`
 -- AUTO_INCREMENT cho bảng `chi_tiet_san_pham`
 --
 ALTER TABLE `chi_tiet_san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `chuc_vu`
@@ -342,7 +337,7 @@ ALTER TABLE `danh_muc_san_pham`
 -- AUTO_INCREMENT cho bảng `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `khuyen_mai`
@@ -366,7 +361,7 @@ ALTER TABLE `nhan_vien`
 -- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `size_san_pham`
